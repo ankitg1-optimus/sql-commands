@@ -46,3 +46,5 @@ WHERE ADDRESS IN ('Pune', 'dehradun');
 --in
 SELECT * From student where marks between 50 and 80;
 SELECT * From student where marks not between 50 and 80;
+
+select name as Indians from Student  where phone like '9%';
