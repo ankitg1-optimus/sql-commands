@@ -13,7 +13,7 @@ insert into student values(6,'Albert','Pune','1231111145',23,40);
 --group by and having
 SELECT count(name)as [no of students],ADDRESS
 FROM Student
-GROUP BY ADDRESS having address is not null ORDER BY ADDRESS ;
+GROUP BY ADDRESS having count(name)>1 ORDER BY ADDRESS ;
 --exists
 Select Name as [Eligible Students]
 from Student 
@@ -38,7 +38,7 @@ SELECT * From student;
 GO
 EXEC showAllStudents;
 
-Create procedure showPassedStudents @passingMarks int
+Create Procedure showPassedStudents @passingMarks int
 as 
 begin
 Select * from student where marks > @passingMarks;
