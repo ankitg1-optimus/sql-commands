@@ -29,7 +29,7 @@ Delete from persons where ID in(2, 9, 7);
 create view todaysEntries as
 select * 
 from persons 
-where entryDate = GETDATE();
+where CAST(entryDate AS DATE) = CAST(GETDATE() AS DATE);
 drop view todaysEntries;
 select * from todaysEntries;
 
