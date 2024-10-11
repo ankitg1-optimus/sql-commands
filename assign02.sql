@@ -75,7 +75,7 @@ from
 		e.last_name,
 		(Select department_name from --subquery to get deptName
 			(Select department_id from( --subquery to get deptId
-				Select Departments.department_id,Sum(project_hours) as[Total Working Hours] from Departments  
+				Select Departments.department_id, Sum(project_hours) as[Total Working Hours] from Departments  
 				Left JOIN Employees ON Employees.department_id = Departments.department_id   --- joining employee -> dept
 				JOIN Projects on Employees.employee_id =Projects.employee_id     --- joining projects -> employee
 				group by Departments.department_id having Sum(project_hours)>500)  -- grouping departments and checking conditon  
@@ -92,6 +92,5 @@ from
 where ep.project_hours>100   --checking for project hours of each employee to be more than 100 
 and 
 department_name is not null   --checking for department to not be null
-
 Order by ep.department_name, ep.salary DESC; ---sorting data on the basis of dept name and if same then on the basis of salary 
 
